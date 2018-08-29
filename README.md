@@ -15,7 +15,10 @@
 
 ## Rules & Usage
 
-有空再补充
+- libs_util -> 工具类模块
+- libs_base -> 公共类模块
+- libs_config -> 配置参数模块
+- 有空再补充
 
 
 ## Todo
