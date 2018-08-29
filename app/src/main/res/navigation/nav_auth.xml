@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="cn.byk.pandora.sample.ui.auth.login.view.LoginFragment"
+        android:label="@string/title_fragment_login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="https://sample.pandora.com/login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="cn.byk.pandora.sample.ui.auth.login.view.RegisterFragment"
+        android:label="@string/title_fragment_register" />
+
+</navigation>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LibsBase</string>
+
+    <string name="txt_msv_empty">空空哒~</string>
+    <string name="txt_msv_error">加载失败，请点击重试</string>
+    <string name="txt_msv_net_error">网络异常，请检查您的网络</string>
+    <string name="txt_msv_loading">加载中，请稍后…</string>
+</resources>

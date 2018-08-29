@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nav_start">
+
+    <navigation
+        android:id="@+id/nav_start"
+        app:startDestination="@id/homeFragment">
+        <fragment
+            android:id="@+id/homeFragment"
+            android:name="cn.byk.pandora.sample.ui.start.home.view.HomeFragment"
+            android:label="@string/title_fragment_home"
+            tools:layout="@layout/fragment_start_home" />
+
+        <fragment
+            android:id="@+id/newsFragment"
+            android:name="cn.byk.pandora.sample.ui.start.news.view.NewsFragment"
+            android:label="@string/title_fragment_news"
+            tools:layout="@layout/fragment_start_news" />
+
+        <fragment
+            android:id="@+id/myFragment"
+            android:name="cn.byk.pandora.sample.ui.start.my.view.MyFragment"
+            android:label="@string/title_fragment_my"
+            tools:layout="@layout/fragment_start_my">
+            <action
+                android:id="@+id/action_my_to_about"
+                app:destination="@id/aboutFragment" />
+        </fragment>
+    </navigation>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="cn.byk.pandora.sample.ui.about.view.AboutFragment"
+        android:label="@string/title_fragment_about"
+        tools:layout="@layout/fragment_about">
+        <argument
+            android:name="isVip"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+
+</navigation>

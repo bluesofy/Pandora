@@ -1,0 +1,158 @@
+/**
+ * Config the Same Dependencies Between Builds
+ **/
+
+// Sdk and Tools in Build
+def build_versions = [:]
+build_versions.min_sdk = 16
+build_versions.target_sdk = 28
+build_versions.build_tools = "28.0.2"
+ext.build_versions = build_versions
+
+// Libs Version
+ext.deps = [:]
+
+def versions = [:]
+// Google Libs Dependencies
+versions.support = '1.0.0-rc01'
+versions.multidex = '2.0.0'
+versions.lifecycle = '2.0.0-beta01'
+versions.nav = "1.0.0-alpha05"
+versions.room = "2.0.0-beta01"
+versions.junit = "4.12"
+versions.atsl_runner = '1.1.0-alpha4'
+versions.atsl_rules = "1.0.2"
+versions.espresso = '3.1.0-alpha4'
+versions.constraint = '1.1.2'
+
+// ClassPath
+versions.objectbox = "2.1.0"
+
+// Third Party Libs
+versions.glide = "4.7.1"
+versions.fastjson = "1.1.68.android"
+versions.zxing = "3.3.3"
+versions.eventbus = "3.1.1"
+versions.retrofit = "2.4.0"
+
+versions.glide = "4.6.1"
+versions.glide_trans = "3.3.0"
+
+versions.mars = "1.2.1"
+versions.mars_xlog = "1.0.6"
+
+versions.okhttp = "3.10.0"
+versions.okio = "1.14.1"
+
+versions.rxjava = "2.1.16"
+versions.rxjava_android = "2.0.2"
+
+versions.fastadapter = "3.2.8"
+versions.statusbar = "1.5.1"
+versions.smartrefresh = "1.0.5.1"
+
+// Pandora Libs
+versions.atomwebview = "1.0.1"
+
+
+def deps = [:]
+// For Group Libs
+def support = [:]
+support.annotations = "androidx.annotation:annotation:$versions.support"
+support.appcompat = "androidx.appcompat:appcompat:$versions.support"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.support"
+support.cardview = "androidx.cardview:cardview:$versions.support"
+support.design = "com.google.android.material:material:$versions.support"
+support.multidex = "androidx.multidex:multidex:$versions.multidex"
+deps.support = support
+
+def nav = [:]
+nav.fragment = "android.arch.navigation:navigation-fragment:$versions.nav"
+nav.ui = "android.arch.navigation:navigation-ui:$versions.nav"
+nav.testing = "android.arch.navigation:navigation-testing:$versions.nav"
+deps.nav = nav
+
+def room = [:]
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+room.rxjava2 = "androidx.room:room-rxjava2:$versions.room"
+room.testing = "androidx.room:room-testing:$versions.room"
+deps.room = room
+
+def lifecycle = [:]
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def atsl = [:]
+atsl.runner = "androidx.test:runner:$versions.atsl_runner"
+atsl.rules = "androidx.test:rules:$versions.atsl_runner"
+deps.atsl = atsl
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "androidx.test.espresso::espresso-contrib:$versions.espresso"
+espresso.intents = "androidx.test.espresso::espresso-intents:$versions.espresso"
+deps.espresso = espresso
+
+def objectbox = [:]
+objectbox.browser = "io.objectbox:objectbox-android-objectbrowser:$versions.objectbox"
+objectbox.android = "io.objectbox:objectbox-android:$versions.objectbox"
+deps.objectbox = objectbox
+
+def glide = [:]
+glide.core = "com.github.bumptech.glide:glide:$versions.glide"
+glide.okhttp3 = "com.github.bumptech.glide:okhttp3-integration:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+glide.trans = "jp.wasabeef:glide-transformations:$versions.glide_trans"
+deps.glide = glide
+
+def mars = [:]
+mars.core = "com.tencent.mars:mars-core:$versions.mars"
+mars.xlog = "com.tencent.mars:mars-xlog:$versions.mars_xlog"
+deps.mars = mars
+
+def rxjava = [:]
+rxjava.core = "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+rxjava.android = "io.reactivex.rxjava2:rxandroid:$versions.rxjava_android"
+deps.rxjava = rxjava
+
+def retrofit = [:]
+retrofit.core = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+deps.retrofit = retrofit
+
+def fastadapter = [:]
+fastadapter.core = "com.mikepenz:fastadapter:$versions.fastadapter"
+fastadapter.commons = "com.mikepenz:fastadapter-commons:$versions.fastadapter"
+fastadapter.ext = "com.mikepenz:fastadapter-extensions:$versions.fastadapter"
+deps.fastadapter = fastadapter
+
+def smartrefresh = [:]
+smartrefresh.layout = "com.scwang.smartrefresh:SmartRefreshLayout:$versions.smartrefresh"
+smartrefresh.header = "com.scwang.smartrefresh:SmartRefreshHeader:$versions.smartrefresh"
+deps.smartrefresh = smartrefresh
+
+def pandora = [:]
+pandora.webview = "cn.byk.pandora:atomwebview:$versions.atomwebview"
+deps.pandora = pandora
+
+// For Single Libs
+deps.junit = "junit:junit:$versions.junit"
+deps.constraint = "androidx.constraintlayout:constraintlayout:$versions.constraint"
+deps.fastjson = "com.alibaba:fastjson:$versions.fastjson"
+deps.zxing = "com.google.zxing:core:$versions.zxing"
+deps.eventbus = "org.greenrobot:eventbus:$versions.eventbus"
+deps.statusbar = "com.jaeger.statusbarutil:library:$versions.statusbar"
+
+// Http
+deps.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+deps.okio = "com.squareup.okio:okio:$versions.okio"
+
+// For ClassPath
+deps.nav_safe_args = "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.nav"
+deps.objectbox_plugin = "io.objectbox:objectbox-gradle-plugin:$versions.objectbox"
+
+ext.deps = deps

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="msv_loading_text" type="id" />
+    <item name="msv_empty_image" type="id" />
+    <item name="msv_empty_text" type="id" />
+    <item name="msv_error_image" type="id" />
+    <item name="msv_error_text" type="id" />
+    <item name="msv_retry_button" type="id" />
+
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LibsConfig</string>
+
+    <string name="txt_ic_address">http://ic.xxx.com</string>
+    <string name="txt_ic_port">80</string>
+    <string name="txt_push_address">http://push.xxx.com</string>
+    <string name="txt_push_port">8090</string>
+</resources>

@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: "androidx.navigation.safeargs"
+
+static def buildTime() {
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+8"))
+}
+
+android {
+    Properties local = new Properties()
+    local.load(rootProject.file("local.properties").newDataInputStream())
+
+    Properties config = new Properties()
+    config.load(rootProject.file("config.properties").newDataInputStream())
+
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId config.PKG_NAME_SAMPLE
+
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+
+        versionCode Integer.parseInt(config.VERSION_CODE)
+        versionName config.VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "arm64-v8a, armeabi-v7a", "x86", "armeabi"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            try {
+                storeFile file(local.KEY_STORE_PATH)
+                storePassword local.KEY_STORE_PASSWORD
+                keyAlias local.KEY_ALIAS
+                keyPassword local.KEY_ALIAS_PASSWORD
+
+                v1SigningEnabled true
+                v2SigningEnabled true
+            } catch (e) {
+                throw new IllegalArgumentException(e.toString())
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            shrinkResources false
+            zipAlignEnabled true
+            minifyEnabled false
+
+            signingConfig signingConfigs.release
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null) {
+                    def versionName = defaultConfig.versionName
+                    def srcFileName = outputFile.name
+                    if (srcFileName.endsWith('release.apk')) {
+                        outputFileName = "pandora_sample_v${versionName}_${buildTime()}.apk"
+                    }
+                    if (srcFileName.endsWith('debug.apk')) {
+                        outputFileName = "pandora_sample_v${versionName}_debug.apk"
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation deps.junit
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.espresso.core
+
+    implementation project(':libs_base')
+    implementation project(':libs_config')
+
+    debugImplementation deps.objectbox.browser
+    releaseImplementation deps.objectbox.android
+
+    implementation deps.nav.fragment
+    implementation deps.nav.ui
+
+    implementation deps.constraint
+}
+
+apply plugin: 'io.objectbox'

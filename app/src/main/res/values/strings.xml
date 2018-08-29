@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Pandora</string>
+
+    <string name="title_fragment_login">Login</string>
+    <string name="title_fragment_register">Register</string>
+
+    <string name="title_fragment_home">Home</string>
+    <string name="title_fragment_my">My</string>
+    <string name="title_fragment_news">News</string>
+
+    <string name="title_fragment_about">About</string>
+
+    <string name="txt_btn_jump">Jump To About</string>
+    <string name="txt_vip_yes">U are Vip</string>
+    <string name="txt_vip_no">U are not Vip</string>
+    <string name="txt_btn_login">Login</string>
+</resources>

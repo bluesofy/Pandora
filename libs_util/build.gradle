@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation deps.junit
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.espresso.core
+
+    api deps.support.multidex
+
+    api deps.fastjson
+
+    api deps.okhttp
+    api deps.okio
+
+    api deps.retrofit.core
+    api deps.retrofit.adapter
+
+    api deps.rxjava.core
+    api deps.rxjava.android
+
+    api deps.zxing
+    api deps.eventbus
+
+    api deps.mars.xlog
+
+    api deps.glide.core
+    api deps.glide.okhttp3
+    api deps.glide.trans
+}

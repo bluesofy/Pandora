@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="spacing_atom">8dp</dimen>
+
+    <dimen name="padding_common">16dp</dimen>
+
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="margin_medium">32dp</dimen>
+    <dimen name="margin_big">40dp</dimen>
+    <dimen name="margin_bigger">48dp</dimen>
+    <dimen name="margin_large">64dp</dimen>
+
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_normal">15sp</dimen>
+    <dimen name="font_size_medium">24sp</dimen>
+    <dimen name="font_size_big">32sp</dimen>
+    <dimen name="font_size_large">48sp</dimen>
+    <dimen name="font_size_huge">64sp</dimen>
+
+</resources>
