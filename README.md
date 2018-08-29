@@ -1,4 +1,4 @@
-# Pandora Framework
+# Pandora Framework（持续完善中）
 
 原生Android应用开发框架，取名Pandora
 
