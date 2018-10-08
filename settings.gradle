@@ -1,4 +1,9 @@
-include ':app', ':libs_config'
+include ':libs_util'
+include ':libs_config'
+include ':libs_base'
 
-include ':libs_util',
-        ':libs_base'
+include ':comps_demo'
+
+include ':app'
+
+//include ':tools_deps_checker'

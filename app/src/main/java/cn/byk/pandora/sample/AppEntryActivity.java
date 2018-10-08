@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import cn.byk.pandora.libs.util.log.LogMan;
 import cn.byk.pandora.sample.base.AppActivity;
 import cn.byk.pandora.sample.ui.SplashActivity;
-import cn.byk.pandora.sample.util.NavCtrl;
 
 /**
  * Created by Byk on 2018/8/18.

@@ -7,6 +7,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import cn.byk.pandora.libs.base.mvp.IAbsView;
 import cn.byk.pandora.libs.util.DeviceUtil;
 import cn.byk.pandora.libs.util.ToastUtil;
 import cn.byk.pandora.libs.util.log.LogMan;
@@ -14,7 +15,7 @@ import cn.byk.pandora.libs.util.log.LogMan;
 /**
  * Created by Byk on 2018/8/3.
  **/
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements IAbsView {
 
     protected Bundle iSavedInstanceState;
 
@@ -110,22 +111,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+    @Override
     public void showLoadingDialog(String msg) {
 
     }
 
+    @Override
     public void showLoadingDialog(int resId) {
 
     }
 
+    @Override
     public void hideLoadingDialog() {
 
     }
 
+    @Override
     public void showTips(String msg) {
         ToastUtil.showShort(this, msg);
     }
 
+    @Override
     public void showTips(int resId) {
         ToastUtil.showShort(this, resId);
     }

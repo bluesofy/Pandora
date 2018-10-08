@@ -10,8 +10,8 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.NavGraph;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-import cn.byk.pandora.sample.base.AppActivity;
 import cn.byk.pandora.sample.R;
+import cn.byk.pandora.sample.base.AppActivity;
 
 /**
  * Created by Byk on 2018/8/20.
@@ -38,10 +38,12 @@ public class MainActivity extends AppActivity {
     protected void setWatcher() {
         getNavCtrl().addOnNavigatedListener(new NavController.OnNavigatedListener() {
             @Override
-            public void onNavigated(@NonNull NavController controller, @NonNull NavDestination destination) {
+            public void onNavigated(@NonNull NavController controller,
+                                    @NonNull NavDestination destination) {
                 NavGraph navGraph = destination.getParent();
                 if (navGraph != null) {
-                    mBnvView.setVisibility(navGraph.getId() == R.id.nav_start ? View.VISIBLE : View.GONE);
+                    mBnvView.setVisibility(
+                            navGraph.getId() == R.id.nav_start ? View.VISIBLE : View.GONE);
                 }
             }
         });

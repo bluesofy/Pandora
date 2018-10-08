@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         minSdkVersion build_versions.min_sdk
@@ -32,7 +31,7 @@ dependencies {
 
     api project(':libs_util')
 
-    api deps.support.appcompat
+//    api deps.support.appcompat
 
     // ViewModel and LiveData Included
     api deps.lifecycle.extensions

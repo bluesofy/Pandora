@@ -42,6 +42,7 @@ public class ExpandableLayout extends RelativeLayout {
 
     public ExpandableLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs);
     }
 
     public void setOnStateChanged(OnStateChanged onStateChanged) {
@@ -113,8 +114,8 @@ public class ExpandableLayout extends RelativeLayout {
                     isOpened = true;
                 }
                 v.getLayoutParams().height = (interpolatedTime == 1) ?
-                        LayoutParams.WRAP_CONTENT :
-                        (int) (targetHeight * interpolatedTime);
+                                             LayoutParams.WRAP_CONTENT :
+                                             (int) (targetHeight * interpolatedTime);
                 v.requestLayout();
             }
 
@@ -140,7 +141,8 @@ public class ExpandableLayout extends RelativeLayout {
                     v.setVisibility(View.GONE);
                     isOpened = false;
                 } else {
-                    v.getLayoutParams().height = initialHeight - (int) (initialHeight * interpolatedTime);
+                    v.getLayoutParams().height =
+                            initialHeight - (int) (initialHeight * interpolatedTime);
                     v.requestLayout();
                 }
             }

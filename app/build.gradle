@@ -13,7 +13,6 @@ android {
     config.load(rootProject.file("config.properties").newDataInputStream())
 
     compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         applicationId config.PKG_NAME_SAMPLE
@@ -87,8 +86,12 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
 
+    // impl libs
     implementation project(':libs_base')
     implementation project(':libs_config')
+
+    // impl components
+    implementation project(':comps_demo')
 
     debugImplementation deps.objectbox.browser
     releaseImplementation deps.objectbox.android

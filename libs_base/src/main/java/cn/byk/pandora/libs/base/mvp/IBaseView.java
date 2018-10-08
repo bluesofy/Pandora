@@ -1,13 +1,13 @@
 package cn.byk.pandora.libs.base.mvp;
 
-import android.app.Activity;
+import cn.byk.pandora.libs.base.BaseActivity;
 
 /**
  * Created by Byk on 2018/8/9.
  **/
-public interface IBaseView<T> {
+public interface IBaseView<T> extends IAbsView {
 
-    Activity getMainContext();
+    BaseActivity getMainContext();
 
     T bindPresenter();
 

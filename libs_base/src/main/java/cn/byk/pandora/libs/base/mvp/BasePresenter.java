@@ -7,7 +7,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * Created by Byk on 2018/8/9.
  **/
-public class BasePresenter implements IBaseLifecycle {
+public class BasePresenter implements IAbsPresenter {
 
     private CompositeDisposable mTaskMgr;
 

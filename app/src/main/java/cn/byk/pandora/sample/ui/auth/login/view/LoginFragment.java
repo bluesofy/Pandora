@@ -1,10 +1,9 @@
 package cn.byk.pandora.sample.ui.auth.login.view;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.lifecycle.ViewModelProviders;
+import cn.byk.pandora.libs.base.BaseActivity;
 import cn.byk.pandora.libs.base.mvp.IBasePresenter;
 import cn.byk.pandora.sample.R;
 import cn.byk.pandora.sample.base.AppActivity;
@@ -72,13 +71,13 @@ public class LoginFragment extends AppFragment implements ILoginContract.LoginVi
     }
 
     @Override
-    public Activity getMainContext() {
-        return getActivity();
+    public BaseActivity getMainContext() {
+        return (AppActivity) getActivity();
     }
 
     @Override
     public ILoginContract.Presenter bindPresenter() {
-        return LoginPresenter.bind((AppActivity) getMainContext())
+        return LoginPresenter.bind(this)
                              .attachLoginView(this);
     }
 

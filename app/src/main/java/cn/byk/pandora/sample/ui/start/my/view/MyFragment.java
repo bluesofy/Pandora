@@ -1,13 +1,14 @@
 package cn.byk.pandora.sample.ui.start.my.view;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import cn.byk.pandora.libs.base.BaseActivity;
 import cn.byk.pandora.libs.base.mvp.IBasePresenter;
 import cn.byk.pandora.sample.R;
+import cn.byk.pandora.sample.base.AppActivity;
 import cn.byk.pandora.sample.base.AppFragment;
 import cn.byk.pandora.sample.ui.start.my.IMyContract;
 
@@ -64,8 +65,8 @@ public class MyFragment extends AppFragment implements IMyContract.View {
     }
 
     @Override
-    public Activity getMainContext() {
-        return getActivity();
+    public BaseActivity getMainContext() {
+        return (AppActivity) getActivity();
     }
 
     @Override

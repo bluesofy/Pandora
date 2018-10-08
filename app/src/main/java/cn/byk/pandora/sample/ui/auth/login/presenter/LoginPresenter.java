@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import cn.byk.pandora.libs.base.mvp.BasePresenter;
-import cn.byk.pandora.sample.base.AppActivity;
+import cn.byk.pandora.libs.base.mvp.IBaseView;
 import cn.byk.pandora.sample.data.entity.User;
 import cn.byk.pandora.sample.ui.auth.login.ILoginContract;
 import cn.byk.pandora.sample.ui.auth.login.model.LoginModel;
@@ -14,22 +14,22 @@ import cn.byk.pandora.sample.ui.auth.login.model.LoginModel;
  **/
 public class LoginPresenter extends BasePresenter implements ILoginContract.Presenter {
 
-    private AppActivity mActivity;
+    private IBaseView mBinder;
 
     private ILoginContract.LoginView mLoginView;
     private ILoginContract.RegisterView mRegView;
 
-    private LoginPresenter(AppActivity activity) {
-        mActivity = activity;
+    private LoginPresenter(IBaseView binder) {
+        mBinder = binder;
     }
 
     public ILoginContract.Model getModel() {
-        return ViewModelProviders.of(mActivity)
+        return ViewModelProviders.of(mBinder.getMainContext())
                                  .get(LoginModel.class);
     }
 
-    public static LoginPresenter bind(@NonNull AppActivity activity) {
-        return new LoginPresenter(activity);
+    public static LoginPresenter bind(@NonNull IBaseView binder) {
+        return new LoginPresenter(binder);
     }
 
     public LoginPresenter attachLoginView(ILoginContract.LoginView view) {
@@ -53,7 +53,7 @@ public class LoginPresenter extends BasePresenter implements ILoginContract.Pres
     public void login(String username, String pwd) {
         ILoginContract.Model model = getModel();
         model.getUser(username)
-             .observe(mActivity, new Observer<User>() {
+             .observe(mBinder.getMainContext(), new Observer<User>() {
                  @Override
                  public void onChanged(User user) {
                      mLoginView.update(user);
@@ -62,11 +62,18 @@ public class LoginPresenter extends BasePresenter implements ILoginContract.Pres
 
         // TODO: 2018/8/26 Add Listener
         applyTask(model.login(username, pwd));
+        showTips("Login Succeed");
         mLoginView.onLogin(true);
     }
 
     @Override
     public void validPhone(String phoneNum) {
 
+    }
+
+    private void showTips(String msg) {
+        if (mBinder != null) {
+            mBinder.showTips(msg);
+        }
     }
 }

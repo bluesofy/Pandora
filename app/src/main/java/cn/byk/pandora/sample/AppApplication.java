@@ -2,7 +2,6 @@ package cn.byk.pandora.sample;
 
 import cn.byk.pandora.libs.base.BaseApplication;
 import cn.byk.pandora.sample.data.entity.MyObjectBox;
-
 import io.objectbox.BoxStore;
 import io.objectbox.android.AndroidObjectBrowser;
 
